@@ -40,7 +40,27 @@ function menuCreate() {
 
   menuItems.forEach(item => {
     let listItem = document.createElmenent('li');
-    listItem.textContent = item
+    listItem.textContent = item;
     unorderedList.appendChild(listItem);
   })
+
+//adding class names
+  menuDiv.classList.add('menu');
+
+//append it
+  menuDiv.appendChild(unorderedList);
+
+  //get menu
+  const menuBtn = document.querySelector('.menu-button');
+  menuBtn.addEventListener('click', () => {
+    menuDiv.classList.toggle('menu-open');
+  })
+ return menuDiv;
 }
+
+//add to DOM
+const header = document.querySelector('.header');
+
+menuItems.forEach(item => {
+  header.appendChild(menuCreator())
+})
