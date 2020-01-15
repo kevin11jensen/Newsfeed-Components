@@ -112,3 +112,52 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+function articleCreate(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  //define new elements
+  const articleDiv = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  
+  const pOne = document.createElement('p');
+  const pTwo = document.createElement('p');
+  const pThree = document.createElement('p');
+  const pDate = document.createElement('p');
+  const expandBtn = document.createElement('span');
+
+  //structure of elements
+  articleDiv.appendChild(articleTitle);
+  articleDiv.appendChild(pDate);
+  articleDiv.appendChild(pOne);
+  articleDiv.appendChild(pTwo);
+  articleDiv.appendChild(pThree);
+  articleDiv.appendChild(expandBtn);
+
+  //add classes to elements
+  articleDiv.classList.add('article');
+  pDate.classList.add('paragraphDate');
+  expandBtn.classList.add('expandButton');
+
+  //set text content
+  articleTitle.textContent = title;
+  pDate.textContent = date;
+  pOne.textContent = firstParagraph;
+  pTwo.textContent = secondParagraph;
+  pThree.textContent = thirdParagraph;
+  expandBtn.textContent = '\u25bc';
+
+  //add event listener
+  expandBtn.addEventListener('click', (event) => {
+    articleDiv.classList.toggle('article-open');
+    if (expandBtn.textContent == '\u25bc') {
+      expandBtn.textContent = '\u25b2';
+    } else if (expandBtn.textContent == '\u25b2') {
+      expandBtn.textContent ='\u25bc';
+    }
+  })
+  return articleDiv;
+}
+
+const container = document.querySelector('body');
+
+data.forEach(item => {
+  container.appendChild(articleCreate(item.title, item.date, item.firstParagraph, item.secondParagraph, item.thirdParagraph));
+})
