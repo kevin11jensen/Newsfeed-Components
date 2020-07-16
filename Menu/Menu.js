@@ -33,35 +33,40 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+
+
+
+
 //create a function that adds items to the menu
-function menuCreator(){
-  const menuDiv = document.createElement('div');
-  const unorderedList = document.createElement('ul');
+// function menuCreator(){
+//   const menuDiv = document.createElement('div');
+//   const unorderedList = document.createElement('ul');
 
-  menuItems.forEach(item => {
-    let listItem = document.createElement('li');
-    listItem.textContent = item
-    unorderedList.appendChild(listItem);
-  })
+//   menuItems.forEach(item => {
+//     let listItem = document.createElement('li');
+//     listItem.textContent = item
+//     unorderedList.appendChild(listItem);
+//   })
 
-  //added class names
-  menuDiv.classList.add('menu')
+//   //added class names
+//   menuDiv.classList.add('menu')
 
-  //added unordered list
-  menuDiv.appendChild(unorderedList);
+//   //added unordered list
+//   menuDiv.appendChild(unorderedList);
 
-  //get menu
-  const menuButton = document.querySelector('.menu-button');
-  menuButton.addEventListener('click', event => {
-    menuDiv.classList.toggle('menu--open');
+//   //get menu
+//   const menuButton = document.querySelector('.menu-button');
+//   menuButton.addEventListener('click', event => {
+//     menuDiv.classList.toggle('menu--open');
     
-  })
+//   })
   
-  return menuDiv
-}
+//   return menuDiv
+// }
 
-//added menu to DOM.
-const header = document.querySelector('.header');
-menuItems.forEach(item => {
-  header.appendChild(menuCreator())
-})
+// //added menu to DOM.
+// const header = document.querySelector('.header');
+// menuItems.forEach(item => {
+//   header.appendChild(menuCreator())
+// })
